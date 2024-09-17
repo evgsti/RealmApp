@@ -48,12 +48,6 @@ final class StorageManager {
         }
     }
     
-    func deleteTask(_ task: Task) {
-        write {
-            realm.delete(task)
-        }
-    }
-    
     func edit(_ taskList: TaskList, newValue: String) {
         write {
             taskList.title = newValue
@@ -67,6 +61,12 @@ final class StorageManager {
     }
 
     // MARK: - Task
+    func deleteTask(_ task: Task) {
+        write {
+            realm.delete(task)
+        }
+    }
+    
     func edit(_ task: Task, newTitle: String, newNote: String) {
         write {
             task.title = newTitle
